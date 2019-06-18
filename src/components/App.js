@@ -8,7 +8,7 @@ const App = () => {
   React.useEffect(() => {
     let token = setInterval(() => {
       setState(Math.random().toFixed(5));
-    }, 2000);
+    }, 1000);
 
     return () => clearInterval(token);
   }, []);
