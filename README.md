@@ -1,4 +1,6 @@
-# Redux TodoMVC Example using Redux Starter Kit
+# Redux TodoMVC Example using Redux Starter Kit and Redux hooks
+
+This is a forked project.
 
 This project is a companion codebase for the post https://magarcia.github.io/2019/01/26/todomvc-redux-starter-kit/. It's a refactor of the TodoMVC Redux example but refactored using [Redux Starter Kit](https://redux-starter-kit.js.org/)
 
