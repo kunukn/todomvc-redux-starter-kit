@@ -28,7 +28,7 @@ const Footer = props => {
           </li>
         ))}
       </ul>
-      {completedCount && (
+      {completedCount > 0 && (
         <button className="clear-completed" onClick={onClearCompleted}>
           Clear completed
         </button>
