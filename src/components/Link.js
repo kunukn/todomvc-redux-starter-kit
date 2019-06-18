@@ -22,7 +22,7 @@ const Link = ({ children, filter }) => {
     <a
       className={classnames({ selected: active })}
       style={{ cursor: "pointer" }}
-      onClick={() => setFilter()}
+      onClick={setFilter}
     >
       {children}
     </a>

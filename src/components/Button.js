@@ -1,22 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
+import { shallowEqual, useSelector, useDispatch } from "react-redux";
+import { visibilityFilter } from "../ducks";
 
-const Button = ({ active, children, setFilter }) => (
-  <button
-    type="button"
-    className={classnames({ selected: active })}
-    style={{ cursor: "pointer" }}
-    onClick={() => setFilter()}
-  >
-    {children}
-  </button>
-);
+const { getVisibilityFilter } = visibilityFilter.selectors;
+const { setVisibilityFilter } = visibilityFilter.actions;
+
+const Button = ({ children, filter }) => {
+  const active = useSelector(state => filter === getVisibilityFilter(state));
+  const dispatch = useDispatch();
+
+  //let setFilter = () => void dispatch(setVisibilityFilter(filter));
+  const setFilter = React.useCallback(
+    () => dispatch(setVisibilityFilter(filter)),
+    [dispatch]
+  );
+
+  return (
+    <button
+      type="button"
+      className={classnames({ selected: active })}
+      style={{ cursor: "pointer" }}
+      onClick={setFilter}
+    >
+      {children}
+    </button>
+  );
+};
 
 Button.propTypes = {
-  active: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-  setFilter: PropTypes.func.isRequired
+  children: PropTypes.node.isRequired
 };
 
 export default Button;
