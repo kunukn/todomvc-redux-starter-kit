@@ -6,16 +6,22 @@ import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { todos } from "../ducks";
 
-const MainSection = () => {
+const MainSection = ({debug}) => {
   const todosCount = useSelector(state => state.todos.length);
   const completedCount = useSelector(state =>
     todos.selectors.getCompletedTodoCount(state)
   );
 
-  let actions = bindActionCreators(todos.actions, useDispatch());
+  let dispatch = useDispatch();
+  //const actions = bindActionCreators(todos.actions, dispatch);
+  const actions = React.useMemo(() => {
+    console.log("useMemo", Date.now());
+    return bindActionCreators(todos.actions, dispatch);
+  }, [dispatch]);
 
   return (
     <section className="main">
+      <div>debug: {debug}</div>
       {todosCount > 0 && (
         <span>
           <input
