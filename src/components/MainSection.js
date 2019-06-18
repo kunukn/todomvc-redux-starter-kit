@@ -5,7 +5,7 @@ import VisibleTodoList from "../containers/VisibleTodoList";
 
 const MainSection = ({ todosCount, completedCount, actions }) => (
   <section className="main">
-    {!!todosCount && (
+    {todosCount && (
       <span>
         <input
           className="toggle-all"
@@ -17,7 +17,7 @@ const MainSection = ({ todosCount, completedCount, actions }) => (
       </span>
     )}
     <VisibleTodoList />
-    {!!todosCount && (
+    {todosCount && (
       <Footer
         completedCount={completedCount}
         activeCount={todosCount - completedCount}

@@ -8,9 +8,7 @@ const Header = ({ add }) => (
     <TodoTextInput
       newTodo
       onSave={text => {
-        if (text.length !== 0) {
-          add({ text });
-        }
+        text.length !== 0 && add({ text });
       }}
       placeholder="What needs to be done?"
     />
