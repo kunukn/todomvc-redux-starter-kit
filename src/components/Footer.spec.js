@@ -1,7 +1,7 @@
 import React from 'react'
 import { createRenderer } from 'react-test-renderer/shallow';
 import Footer from './Footer'
-import FilterLink from '../containers/FilterLink'
+import Link from "../components/Link";
 import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from '../constants/TodoFilters'
 
 const setup = propOverrides => {
@@ -63,7 +63,7 @@ describe('components', () => {
       filters.props.children.forEach(function checkFilter(filter, i) {
         expect(filter.type).toBe('li')
         const a = filter.props.children
-        expect(a.type).toBe(FilterLink)
+        expect(a.type).toBe(Link)
         expect(a.props.filter).toBe(todoFilters[i])        
         expect(a.props.children).toBe(filterTitles[i])        
       })
