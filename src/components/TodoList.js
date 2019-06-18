@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import TodoItem from "./TodoItem";
 import { todos } from "../ducks";
-import { shallowEqual, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 const TodoList = () => {
   let filteredTodos = useSelector(state =>

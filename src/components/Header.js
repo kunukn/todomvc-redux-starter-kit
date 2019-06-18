@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import TodoTextInput from "./TodoTextInput";
 import { todos } from "../ducks";
-import { shallowEqual, useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Header = ({ debug }) => {
   let dispatch = useDispatch();

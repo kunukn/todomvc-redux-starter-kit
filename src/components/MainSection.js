@@ -1,19 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Footer from "./Footer";
 import TodoList from "../components/TodoList";
-import { shallowEqual, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { todos } from "../ducks";
 
-const MainSection = ({debug}) => {
+const MainSection = ({ debug }) => {
   const todosCount = useSelector(state => state.todos.length);
   const completedCount = useSelector(state =>
     todos.selectors.getCompletedTodoCount(state)
   );
 
   let dispatch = useDispatch();
-  //const actions = bindActionCreators(todos.actions, dispatch);
+  // const actions = (() => {
+  //   console.log("bindActionCreators", Date.now());
+  //   return bindActionCreators(todos.actions, dispatch);
+  // })();
   const actions = React.useMemo(() => {
     console.log("useMemo", Date.now());
     return bindActionCreators(todos.actions, dispatch);

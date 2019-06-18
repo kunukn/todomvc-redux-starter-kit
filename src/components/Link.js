@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
-import { shallowEqual, useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { visibilityFilter } from "../ducks";
 
 const { getVisibilityFilter } = visibilityFilter.selectors;
@@ -14,7 +14,7 @@ const Link = ({ children, filter }) => {
   //let setFilter = () => void dispatch(setVisibilityFilter(filter));
   const setFilter = React.useCallback(
     () => dispatch(setVisibilityFilter(filter)),
-    [dispatch]
+    [dispatch, filter]
   );
 
   return (

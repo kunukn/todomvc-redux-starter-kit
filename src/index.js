@@ -6,6 +6,10 @@ import App from "./components/App";
 import "todomvc-app-css/index.css";
 import "./index.css";
 
+store.subscribe(() => {
+  console.log('store',store.getState());
+});
+
 render(
   <Provider store={store}>
     <App />
