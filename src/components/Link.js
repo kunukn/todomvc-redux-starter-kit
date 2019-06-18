@@ -11,7 +11,11 @@ const Link = ({ children, filter }) => {
   const active = useSelector(state => filter === getVisibilityFilter(state));
   const dispatch = useDispatch();
 
-  let setFilter = () => void dispatch(setVisibilityFilter(filter));
+  //let setFilter = () => void dispatch(setVisibilityFilter(filter));
+  const setFilter = React.useCallback(
+    () => dispatch(setVisibilityFilter(filter)),
+    [dispatch]
+  );
 
   return (
     // eslint-disable-next-line jsx-a11y/anchor-is-valid
@@ -26,7 +30,7 @@ const Link = ({ children, filter }) => {
 };
 
 Link.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default Link;
