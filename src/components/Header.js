@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import TodoTextInput from "./TodoTextInput";
+import { todos } from "../ducks";
 
 const Header = ({ add }) => (
   <header className="header">
@@ -16,7 +17,6 @@ const Header = ({ add }) => (
 );
 
 Header.propTypes = {
-  add: PropTypes.func.isRequired
 };
 
 export default Header;
