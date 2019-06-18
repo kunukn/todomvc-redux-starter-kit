@@ -2,7 +2,7 @@ import React from "react";
 import { createRenderer } from "react-test-renderer/shallow";
 import MainSection from "./MainSection";
 import Footer from "./Footer";
-import VisibleTodoList from "../containers/VisibleTodoList";
+import TodoList from "../components/TodoList";
 
 const setup = propOverrides => {
   const props = Object.assign(
@@ -100,7 +100,7 @@ describe("components", () => {
           item => item !== false
         );
         expect(renderedChildren.length).toBe(1);
-        expect(renderedChildren[0].type).toBe(VisibleTodoList);
+        expect(renderedChildren[0].type).toBe(TodoList);
       });
     });
   });

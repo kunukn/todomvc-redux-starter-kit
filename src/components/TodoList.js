@@ -1,13 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
 import TodoItem from "./TodoItem";
 import { todos } from "../ducks";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
 
-const TodoList = ({ filteredTodos, actions }) => {
+const TodoList = () => {
+  let filteredTodos = useSelector(state =>
+    todos.selectors.getVisibleTodos(state)
+  );
 
-
-
+  let dispatch = useDispatch();
+  let actions = bindActionCreators(todos.actions, dispatch);
 
   return (
     <ul className="todo-list">
@@ -18,15 +22,6 @@ const TodoList = ({ filteredTodos, actions }) => {
   );
 };
 
-TodoList.propTypes = {
-  filteredTodos: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      completed: PropTypes.bool.isRequired,
-      text: PropTypes.string.isRequired
-    })
-  ),
-  actions: PropTypes.object
-};
+TodoList.propTypes = {};
 
 export default TodoList;

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Footer from "./Footer";
-import VisibleTodoList from "../containers/VisibleTodoList";
+import TodoList from "../components/TodoList";
 import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 import { todos } from "../ducks";
@@ -27,7 +27,7 @@ const MainSection = () => {
           <label onClick={actions.completeAll} />
         </span>
       )}
-      <VisibleTodoList />
+      <TodoList />
       {todosCount > 0 && (
         <Footer
           completedCount={completedCount}
