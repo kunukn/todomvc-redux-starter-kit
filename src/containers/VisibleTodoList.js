@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { todos } from "../ducks";
+import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import TodoList from "../components/TodoList";
 
 const mapStateToProps = state => ({
