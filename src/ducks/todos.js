@@ -8,14 +8,16 @@ import {
 
 const { getVisibilityFilter } = visibilityFilter.selectors;
 
-const addTodo = (state, action) => [
-  ...state,
-  {
-    id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
-    completed: false,
-    text: action.payload.text
-  }
-];
+const addTodo = (state, action) => {
+  return [
+    ...state,
+    {
+      id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1,
+      completed: false,
+      text: action.payload.text
+    }
+  ];
+};
 
 const deleteTodo = (state, action) =>
   state.filter(todo => todo.id !== action.payload.id);
