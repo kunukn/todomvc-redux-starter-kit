@@ -12,13 +12,20 @@ const MainSection = ({ debug }) => {
   );
 
   let dispatch = useDispatch();
+
+
+
   // const actions = (() => {
   //   console.log("bindActionCreators", Date.now());
   //   return bindActionCreators(todos.actions, dispatch);
   // })();
+
+//  let actions = bindActionCreators(  todos.actions, dispatch);
+
   const actions = React.useMemo(() => {
     console.log("useMemo", Date.now());
-    return bindActionCreators(todos.actions, dispatch);
+    return bindActionCreators(
+      todos.actions, dispatch);
   }, [dispatch]);
 
   return (

@@ -8,7 +8,10 @@ const { getVisibilityFilter } = visibilityFilter.selectors;
 const { setVisibilityFilter } = visibilityFilter.actions;
 
 const Link = ({ children, filter }) => {
-  const active = useSelector(state => filter === getVisibilityFilter(state));
+  
+  //const active = useSelector(state => filter === getVisibilityFilter(state));
+  const active = useSelector(state => filter === state.visibilityFilter);
+
   const dispatch = useDispatch();
 
   //let setFilter = () => void dispatch(setVisibilityFilter(filter));
