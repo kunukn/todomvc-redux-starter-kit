@@ -21,6 +21,4 @@ const TodoList = () => {
   );
 };
 
-TodoList.propTypes = {};
-
 export default TodoList;

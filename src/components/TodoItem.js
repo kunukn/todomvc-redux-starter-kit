@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classnames from "classnames";
+import cx from "classnames";
 import TodoTextInput from "./TodoTextInput";
 
 export default function TodoItem(props) {
@@ -51,7 +51,7 @@ export default function TodoItem(props) {
 
   return (
     <li
-      className={classnames({
+      className={cx({
         completed: todo.completed,
         editing: state.editing
       })}

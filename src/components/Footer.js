@@ -13,8 +13,7 @@ const FILTER_TITLES = {
   [SHOW_COMPLETED]: "Completed"
 };
 
-const Footer = props => {
-  const { activeCount, completedCount, onClearCompleted } = props;
+const Footer = ({ activeCount, completedCount, onClearCompleted }) => {
   const itemWord = activeCount === 1 ? "item" : "items";
   return (
     <footer className="footer">
@@ -29,7 +28,7 @@ const Footer = props => {
         ))}
       </ul>
       {completedCount > 0 && (
-        <button className="clear-completed" onClick={onClearCompleted}>
+        <button className="clear-completed" onClick={_ => onClearCompleted()}>
           Clear completed
         </button>
       )}

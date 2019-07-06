@@ -6,9 +6,7 @@ const App = () => {
   let [state, setState] = React.useState(0);
 
   React.useEffect(() => {
-    let token = setInterval(() => {
-      setState(Math.random().toFixed(5));
-    }, 1000);
+    let token = setInterval(() => 0 && setState(Math.random().toFixed(5)), 2000);
 
     return () => clearInterval(token);
   }, []);
@@ -16,7 +14,7 @@ const App = () => {
   return (
     <>
       <Header debug={state} />
-      <MainSection debug={state} />
+      <MainSection />
     </>
   );
 };

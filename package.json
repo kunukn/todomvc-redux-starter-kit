@@ -1,5 +1,5 @@
 {
-  "name": "redux-start-kit-todomvc",
+  "name": "redux-start-kit-todomvc-and-hooks",
   "version": "0.0.1",
   "private": false,
   "resolutions": {
@@ -7,7 +7,8 @@
   },
   "devDependencies": {
     "react-scripts": "^3.0.1",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "uuid": "^3.3.2"
   },
   "dependencies": {
     "caniuse-lite": "1.0.30000974",

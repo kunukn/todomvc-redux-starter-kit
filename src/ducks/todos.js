@@ -1,3 +1,4 @@
+import uuidv4 from "uuid/v4";
 import { createSlice, createSelector } from "redux-starter-kit";
 import { visibilityFilter } from "./visibilityFilter";
 import {
@@ -8,18 +9,14 @@ import {
 
 const { getVisibilityFilter } = visibilityFilter.selectors;
 
-const uid = () => {
-  let r = () => ("" + Math.random()).substr(2);
-  let a = (+r()).toString(16);
-  let b = (+r()).toString(16);
-  return a + b;
-};
+const add = (state, action) => {
 
-const addTodo = (todos, action) => {
+  console.log(action)
+
   return [
-    ...todos,
+    ...state,
     {
-      id: uid(),
+      id: uuidv4(),
       completed: false,
       text: action.payload.text
     }
@@ -29,20 +26,20 @@ const addTodo = (todos, action) => {
 const deleteTodo = (state, action) =>
   state.filter(todo => todo.id !== action.payload.id);
 
-const editTodo = (state, action) =>
+const edit = (state, action) =>
   state.map(todo =>
     todo.id === action.payload.id
       ? { ...todo, text: action.payload.text }
       : todo
   );
 
-const completeTodo = (state, action) =>
+const complete = (state, action) =>
   state.map(todo =>
     todo.id === action.payload.id
       ? { ...todo, completed: !todo.completed }
       : todo
   );
-const completeAllTodos = state => {
+const completeAll = (state, action) => {
   const areAllMarked = state.every(todo => todo.completed);
   return state.map(todo => ({
     ...todo,
@@ -50,18 +47,19 @@ const completeAllTodos = state => {
   }));
 };
 
-const clearCompleted = state => state.filter(todo => todo.completed === false);
+const clearCompleted = (state, action) => 
+state.filter(todo => !todo.completed);
 
 const todos = createSlice({
   slice: "todos",
   initialState: [],
   reducers: {
-    add: addTodo,
+    add,
     delete: deleteTodo,
-    edit: editTodo,
-    complete: completeTodo,
-    completeAll: completeAllTodos,
-    clearCompleted: clearCompleted
+    edit,
+    complete,
+    completeAll,
+    clearCompleted
   }
 });
 

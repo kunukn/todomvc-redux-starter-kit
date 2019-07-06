@@ -10,12 +10,10 @@ const Header = ({ debug }) => {
   return (
     <header className="header">
       <h1>todos</h1>
-      <div>debug: {debug}</div>
+      {debug > 0 && <div>debug: {debug}</div>}
       <TodoTextInput
         newTodo
-        onSave={text => {
-          text.length !== 0 && add({ text });
-        }}
+        onSave={text => text.length && add({ text })}
         placeholder="What needs to be done?"
       />
     </header>
