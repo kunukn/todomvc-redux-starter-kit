@@ -5,7 +5,7 @@ import {
   SHOW_ALL,
   SHOW_COMPLETED,
   SHOW_ACTIVE,
-} from '../constants/TodoFilters';
+} from 'constants/TodoFilters';
 
 const { getVisibilityFilter } = visibilityFilter.selectors;
 

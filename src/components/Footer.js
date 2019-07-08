@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Link from "../components/Link";
+import Link from "components/Link";
 import {
   SHOW_ALL,
   SHOW_COMPLETED,

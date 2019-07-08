@@ -3,7 +3,7 @@ import Footer from './Footer';
 import TodoList from '../components/TodoList';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { todos } from '../slices';
+import { todos } from 'slices';
 
 const MainSection = () => {
   const todosCount = useSelector(rootState => rootState.todos.length);

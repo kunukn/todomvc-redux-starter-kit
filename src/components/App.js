@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "../components/Header";
-import MainSection from "../components/MainSection";
+import Header from "components/Header";
+import MainSection from "components/MainSection";
 
 const App = () => {
   let [state, setState] = React.useState(0);
