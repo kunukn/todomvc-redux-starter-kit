@@ -1,25 +1,24 @@
-import uuidv4 from "uuid/v4";
-import { createSlice, createSelector } from "redux-starter-kit";
-import { visibilityFilter } from "./visibilityFilter";
+import uuidv4 from 'uuid/v4';
+import { createSlice, createSelector } from 'redux-starter-kit';
+import { visibilityFilter } from './visibilityFilter';
 import {
   SHOW_ALL,
   SHOW_COMPLETED,
-  SHOW_ACTIVE
-} from "../constants/TodoFilters";
+  SHOW_ACTIVE,
+} from '../constants/TodoFilters';
 
 const { getVisibilityFilter } = visibilityFilter.selectors;
 
 const add = (state, action) => {
-
-  console.log(action)
+  console.log(action);
 
   return [
     ...state,
     {
       id: uuidv4(),
       completed: false,
-      text: action.payload.text
-    }
+      text: action.payload.text,
+    },
   ];
 };
 
@@ -43,15 +42,14 @@ const completeAll = (state, action) => {
   const areAllMarked = state.every(todo => todo.completed);
   return state.map(todo => ({
     ...todo,
-    completed: !areAllMarked
+    completed: !areAllMarked,
   }));
 };
 
-const clearCompleted = (state, action) => 
-state.filter(todo => !todo.completed);
+const clearCompleted = (state, action) => state.filter(todo => !todo.completed);
 
 const todos = createSlice({
-  slice: "todos",
+  slice: 'todos',
   initialState: [],
   reducers: {
     add,
@@ -59,8 +57,8 @@ const todos = createSlice({
     edit,
     complete,
     completeAll,
-    clearCompleted
-  }
+    clearCompleted,
+  },
 });
 
 todos.selectors.getVisibleTodos = createSelector(
@@ -74,7 +72,7 @@ todos.selectors.getVisibleTodos = createSelector(
       case SHOW_ACTIVE:
         return todos.filter(t => !t.completed);
       default:
-        throw new Error("Unknown filter: " + visibilityFilter);
+        throw new Error('Unknown filter: ' + visibilityFilter);
     }
   }
 );

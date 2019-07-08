@@ -1,7 +1,7 @@
-import React from "react";
-import TodoTextInput from "./TodoTextInput";
-import { todos } from "../ducks";
-import { useDispatch } from "react-redux";
+import React from 'react';
+import TodoTextInput from './TodoTextInput';
+import { todos } from '../slices';
+import { useDispatch } from 'react-redux';
 
 const Header = ({ debug }) => {
   let dispatch = useDispatch();

@@ -1,8 +1,8 @@
-import React from "react";
-import { bindActionCreators } from "redux";
-import TodoItem from "./TodoItem";
-import { todos } from "../ducks";
-import { useSelector, useDispatch } from "react-redux";
+import React from 'react';
+import { bindActionCreators } from 'redux';
+import TodoItem from './TodoItem';
+import { todos } from '../slices';
+import { useSelector, useDispatch } from 'react-redux';
 
 const TodoList = () => {
   let filteredTodos = useSelector(state =>
